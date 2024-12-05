@@ -21,5 +21,8 @@ jobs:
           cat abc.txt
       - name: Debug Secrets
         run: |
-          echo "Available secrets:"
-          echo "${{ secrets }}"
+          echo "Defined secrets:"
+          for secret in $(compgen -v | grep '^SECRET_'); do
+            echo $secret
+          done
+          
