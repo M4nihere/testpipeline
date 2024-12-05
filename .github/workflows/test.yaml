@@ -3,18 +3,18 @@ name: Print Test Secret
 on:
   push:
     branches:
-      - main
+      - main  # Change this to your desired branch
 
 jobs:
   print-secret:
     runs-on: ubuntu-latest
-    environment: staging
+    environment: staging  # Specify the environment here
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Print Test Secret
+      - name: Print MANISH Secret
         run: |
-          echo "Test Secret: ${{ secrets.MANISH }}" >> abc.txt
+          echo "MANISH Secret: ${{ secrets.MANISH }}" >> abc.txt
           cat abc.txt
