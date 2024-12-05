@@ -8,7 +8,6 @@ on:
 jobs:
   print-secret:
     runs-on: ubuntu-latest
-    environment: staging  # Specify the environment here
 
     steps:
       - name: Checkout code
@@ -17,12 +16,9 @@ jobs:
       - name: Print MANISH Secret
         run: |
           echo "value of Manish is" >> abc.txt
-          echo "MANISH Secret: ${{ secrets.MANISH }}" >> abc.txt
+          echo "MANISH Secret: ${{ secrets.STAGING }}" >> abc.txt
           cat abc.txt
-      - name: Debug Environment
-        run: |
-          echo "Environment: ${{ github.environment }}"
-          echo "Secrets: ${{ secrets }}"
+
       - name: Debug Secrets
         run: |
           echo "Defined secrets:"
