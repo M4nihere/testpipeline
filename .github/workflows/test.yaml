@@ -16,6 +16,7 @@ jobs:
       - name: Save JSON to File
         run: |
           cd /home/laravel
+          > staging.json
           echo '${{ secrets.STAGING }}' > staging.json
           cat staging.json
       - name: Convert JSON to .env
