@@ -13,8 +13,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Print MANISH Secret
+      - name: Save JSON to File
         run: |
-          echo "value of Manish is" >> abc.txt
-          echo "MANISH Secret: ${{ secrets.STAGING }}" >> abc.txt
-          cat abc.txt
+          echo '${{ secrets.STAGING }}' > staging.json
+          cat staging.json
+      
