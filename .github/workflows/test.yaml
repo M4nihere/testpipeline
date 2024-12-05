@@ -1,21 +1,20 @@
-name: Print Staging Secret
+name: Print Test Secret
 
 on:
   push:
     branches:
-      - main  # Change this to your desired branch
+      - main
 
 jobs:
   print-secret:
     runs-on: ubuntu-latest
     environment: staging
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Print Staging Secret
-        run: | 
-            echo "Staging Secret: ${{ secrets.staging }}" >> abc.txt
-            cat abc.txt
-        env:
-          staging: ${{ secrets.staging }}
+      - name: Print Test Secret
+        run: |
+          echo "Test Secret: ${{ secrets.staging }}" >> abc.txt
+          cat abc.txt
