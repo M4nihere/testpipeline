@@ -19,10 +19,13 @@ jobs:
           echo "value of Manish is" >> abc.txt
           echo "MANISH Secret: ${{ secrets.MANISH }}" >> abc.txt
           cat abc.txt
+      - name: Debug Environment
+        run: |
+          echo "Environment: ${{ github.environment }}"
+          echo "Secrets: ${{ secrets }}"
       - name: Debug Secrets
         run: |
           echo "Defined secrets:"
           for secret in $(compgen -v | grep '^SECRET_'); do
             echo $secret
           done
-          
