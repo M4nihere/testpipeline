@@ -11,17 +11,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Print MANISH Secret
         run: |
           echo "value of Manish is" >> abc.txt
           echo "MANISH Secret: ${{ secrets.STAGING }}" >> abc.txt
           cat abc.txt
-
-      - name: Debug Secrets
-        run: |
-          echo "Defined secrets:"
-          for secret in $(compgen -v | grep '^SECRET_'); do
-            echo $secret
-          done
