@@ -17,12 +17,13 @@ jobs:
         run: |
           cd /home/laravel
           > staging.json
+          > .env
           echo '${{ secrets.STAGING }}' > staging.json
           cat staging.json
       - name: Convert JSON to .env
         run: |
           cd /home/laravel
-          jq -r 'to_entries | .[] | "\(.key)=\(.value)"' staging.json > .env
+          jq -r 'to_entries | .[] | "\(.key)=\"\(.value)\""' staging.json > .env
           echo ".env file created with the following keys:"
           cat .env | awk -F= '{print $1}'
         
