@@ -16,5 +16,5 @@ jobs:
 
       - name: Print Test Secret
         run: |
-          echo "Test Secret: ${{ secrets.staging }}" >> abc.txt
+          echo "Test Secret: ${{ secrets.manish }}" >> abc.txt
           cat abc.txt
